@@ -34,11 +34,11 @@ const Formulario = () => {
             <S.ContainerForm>
             <S.Form onSubmit={cadastrarTelefone}>
         <Titulo>Novo contato</Titulo>
-                <label htmlFor="nome">Nome</label>
-                <S.Campo required name='nome' value={nome} onChange={(evento) => setNome(evento.target.value)} placeholder='Nome completo'/>
-                <label htmlFor="email">Email</label>
+                <label>Nome</label>
+                <S.Campo required value={nome} onChange={(evento) => setNome(evento.target.value)} placeholder='Nome completo'/>
+                <label>Email</label>
                 <S.Campo as="input" type='email' required value={email} onChange={(evento) => setEmail(evento.target.value)} placeholder='Email'/>
-                <label htmlFor="nome">Telefone</label>
+                <label>Telefone</label>
                 <S.Campo as="input" type='number' maxLength={11} value={telefone} onChange={(evento) => setTelefone(evento.target.value)} placeholder='Telefone'/>
                 <BotaoEditar type='submit'>Cadastrar</BotaoEditar>
                 <S.BtnVoltar to="/">Voltar</S.BtnVoltar>
