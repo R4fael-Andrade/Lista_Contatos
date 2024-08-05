@@ -64,7 +64,7 @@ const CardContato = ({nome: nomeOriginal, email: emailOriginal, telefone: numero
                 {estaEditando ? (
                     <>
                         <BotaoEditar onClick={() => {
-                            if(nomeContato.length === 0 || emailContato.length === 0 || numeroContato.length < 11) {
+                            if(nomeContato.length < 9 || emailContato.length === 0 || numeroContato.length < 11) {
                                 verificaEdicao()
                             } else {
                                 dispacth(editar({
