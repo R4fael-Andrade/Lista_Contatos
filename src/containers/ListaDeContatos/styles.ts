@@ -14,8 +14,3 @@ export const Container = styled.div`
     margin: 0 auto;
 `
 
-export const Titulo = styled.h1`
-    text-align: center;
-    padding: 16px 0;
-    color: #3366ff;
-`

@@ -1,8 +1,9 @@
 
-import CardContato from "../CardContato";
-import { Container, Titulo } from "./styles";
+import CardContato from "../../components/CardContato";
+import { Container } from "./styles";
 import {RootReducer} from '../../store'
 import { useSelector } from "react-redux";
+import {Titulo} from '../../styles/styles'
 
     const ListaDeContatos = () => {
         const {itens} = useSelector((state: RootReducer) => state.contatos)
@@ -12,7 +13,11 @@ import { useSelector } from "react-redux";
             <Container>
                 {itens.map((t) => (
                     <li key={t.nome}>
-                        <CardContato id={t.id} nome={t.nome} email={t.email} numero={t.telefone}  />
+                        <CardContato id={t.id} 
+                        nome={t.nome} 
+                        email={t.email} 
+                        telefone={t.telefone}  
+                    />
                     </li>
                 ))}
             </Container>          
