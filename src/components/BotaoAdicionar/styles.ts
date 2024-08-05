@@ -1,10 +1,11 @@
 import {Link} from 'react-router-dom'
 import styled from "styled-components";
+import variaveis from '../../styles/variaveis'
 
 export const BtnAdicionar = styled(Link)`
     padding: 8px;
-    background-color: #009933;
-    color: #fff;
+    background-color: ${variaveis.verde};
+    color: ${variaveis.branco};
     text-decoration: none;
     position: fixed;
     bottom: 40px;

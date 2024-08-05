@@ -10,7 +10,7 @@ const initialState: ContatoState = {
         {
             id: 1,
             nome: 'Rafael Sousa',
-            email: 'rafael.teste@gmail.com',
+            email: 'rafael@gmail.com',
             telefone: '88993989211'
         },
         {
@@ -27,14 +27,14 @@ const initialState: ContatoState = {
         },
         {
             id: 4,
-            nome: 'Amaro de Melo',
-            email: 'amaro454@gmail.com',
+            nome: 'Cristiano Ronaldo',
+            email: 'cristianothebest@gmail.com',
             telefone: '88947523154'
         },
         {
             id: 5,
-            nome: 'Virginia Fonseca',
-            email: 'virginia321@gmail.com',
+            nome: 'Marcos Silva',
+            email: 'silvamarcos@gmail.com',
             telefone: '88934751236'
         },
     ]
@@ -62,8 +62,6 @@ const contatosSlice = createSlice({
 
             if(contatoJaExiste) {
                 alert('Já existe um contato com esse telefone')
-            } else if(state.itens.find((tel) => tel.telefone.length < 11)) {
-                alert('Telefone deve possuir 11 caracteres')
             } else {
                 const ultimoContato = state.itens[state.itens.length - 1]
 

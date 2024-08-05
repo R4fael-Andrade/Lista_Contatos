@@ -3,7 +3,7 @@ import { excluir, editar } from '../../store/reducers/contatos'
 import * as S from './style'
 import { useEffect, useState } from 'react'
 import Contato from '../../models/Contato'
-import { BotaoEditar,BotaoExcluir} from '../../styles/styles'
+import { Botao, BotaoEditar,BotaoExcluir} from '../../styles/styles'
 
 // type Props = {
 //     nome: string
@@ -45,26 +45,44 @@ const CardContato = ({nome: nomeOriginal, email: emailOriginal, telefone: numero
         setEmailContato(emailOriginal)
         setNumeroContato(numeroOriginal)
     }
+
+    function verificaEdicao () {
+            alert('Preencha os campos corretamente')
+            setNomeContato(nomeOriginal)
+            setEmailContato(emailOriginal)
+            setNumeroContato(numeroOriginal)
+        }
+    
     
     return (
         <>
             <S.Card>
                 <S.Foto src='https://thumbs.dreamstime.com/b/design-do-%C3%ADcone-de-avatar-perfil-vetor-229438563.jpg' />
-                <S.NomeTag onChange={(evento) => setNomeContato(evento.target.value)} disabled={!estaEditando} value={nomeContato} />  
-                <S.TextoCard onChange={(evento) => setEmailContato(evento.target.value)} disabled={!estaEditando} value={emailContato} /> 
-                <S.TextoCard minLength={11} maxLength={11} onChange={(evento) => setNumeroContato(evento.target.value)} disabled={!estaEditando} value={numeroContato} />
+                <S.NomeTag required onChange={(evento) => setNomeContato(evento.target.value)} disabled={!estaEditando} value={nomeContato} />  
+                <S.TextoCard required onChange={(evento) => setEmailContato(evento.target.value)} disabled={!estaEditando} value={emailContato} /> 
+                <S.TextoCard required type='number' as="input" minLength={11} maxLength={11} onChange={(evento) => setNumeroContato(evento.target.value)} disabled={!estaEditando} value={numeroContato} />
                 {estaEditando ? (
                     <>
-                        <BotaoEditar onClick={() => {dispacth(editar({
-                            id,
-                            nome: nomeContato, 
-                            email: emailContato, 
-                            telefone: numeroContato})); setEstaEditando(false)}} >Salvar</BotaoEditar> 
+                        <BotaoEditar onClick={() => {
+                            if(nomeContato.length === 0 || emailContato.length === 0 || numeroContato.length < 11) {
+                                verificaEdicao()
+                            } else {
+                                dispacth(editar({
+                                    id,
+                                    nome: nomeContato, 
+                                    email: emailContato, 
+                                    telefone: numeroContato
+                                }));
+                                    setEstaEditando(false)
+                            }
+                            
+                            
+                        }} >Salvar</BotaoEditar> 
                         <BotaoExcluir onClick={() => cancelarEdicao()}>Cancelar</BotaoExcluir>
                     </>
                 ) : (
                     <>
-                        <BotaoEditar onClick={() => setEstaEditando(true)}>Editar</BotaoEditar>
+                        <Botao onClick={() => setEstaEditando(true)}>Editar</Botao>
                         <BotaoExcluir onClick={() => dispacth(excluir(id))} >Excluir</BotaoExcluir>
                     </>
                 )}

@@ -1,4 +1,5 @@
 import styled, {createGlobalStyle} from "styled-components";
+import variaveis from "./variaveis";
 
 const EstiloGlobal = createGlobalStyle`
     * {
@@ -10,36 +11,36 @@ const EstiloGlobal = createGlobalStyle`
     }
 
     body {
-        background-color: #003366;
+        background-color: ${variaveis.azul};
     }
 `
 
 export const Titulo = styled.h1`
     text-align: center;
     padding: 16px 0;
-    color: #ddd;
+    color: ${variaveis.cinza};
 `
 
 export const Botao = styled.button`
     padding: 8px 16px;
     font-size: 14px;
     font-weight: bold;
-    background-color: #3366ff;
-    color: #fff;
+    color: ${variaveis.cinza};
+    background-color: ${variaveis.azul};
     border: none;
     border-radius: 8px;
     margin-right: 4px;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin: 10px 5px;
 
 `
 
 export const BotaoEditar = styled(Botao)`
-    background-color: #009933;
+    background-color: ${variaveis.verde};
 `
 
 export const BotaoExcluir = styled(Botao)`
-    background-color: #b30000;
+    background-color: ${variaveis.vermelho};
 `
 
 export default EstiloGlobal

@@ -14,24 +14,32 @@ const Formulario = () => {
     const cadastrarTelefone = (evento: FormEvent) => {
         evento.preventDefault()
 
-        dispatch(cadastrar({
-            nome,
-            email,
-            telefone
-        }))
-        navigate('/')
+        if(telefone.length  < 11 ) {
+            alert('Campo telefone deve conter 11 caracteres')
+        } else {
+            dispatch(cadastrar({
+                nome,
+                email,
+                telefone
+            }))
+            navigate('/')
+        }
     }
+
+    
+        
+
     return (
         <>
             <S.ContainerForm>
             <S.Form onSubmit={cadastrarTelefone}>
         <Titulo>Novo contato</Titulo>
                 <label htmlFor="nome">Nome</label>
-                <S.Campo name='nome' value={nome} onChange={(evento) => setNome(evento.target.value)} placeholder='Nome'/>
+                <S.Campo required name='nome' value={nome} onChange={(evento) => setNome(evento.target.value)} placeholder='Nome'/>
                 <label htmlFor="email">Email</label>
-                <S.Campo value={email} onChange={(evento) => setEmail(evento.target.value)} placeholder='Email'/>
+                <S.Campo as="input" type='email' required value={email} onChange={(evento) => setEmail(evento.target.value)} placeholder='Email'/>
                 <label htmlFor="nome">Telefone</label>
-                <S.Campo maxLength={11} value={telefone} onChange={(evento) => setTelefone(evento.target.value)} placeholder='Telefone'/>
+                <S.Campo as="input" type='number' maxLength={11} value={telefone} onChange={(evento) => setTelefone(evento.target.value)} placeholder='Telefone'/>
                 <BotaoEditar type='submit'>Cadastrar</BotaoEditar>
                 <S.BtnVoltar to="/">Voltar</S.BtnVoltar>
             </S.Form>

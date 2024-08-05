@@ -1,30 +1,26 @@
 import styled from "styled-components";
+import variaveis from "../../styles/variaveis";
 
 export const Card = styled.div`
     max-width: 400px;
     width: 100%;
     height: auto;
-    background-color: #eee;
-    /* display: flex; */
-    /* flex-direction: column; */  
+    background-color: ${variaveis.cinza};
     text-align:center;
     border-radius: 16px;
     box-shadow: 0 4px 8px;
     margin-bottom: 8px;
-    /* justify-content:center; */
-
     
 `
 
 export const NomeTag = styled.textarea`
     font-size: 24px;
-    color: #000;
+    color: ${variaveis.preto};
     padding: 0 8px;
     text-align: center;
     resize: none;
     background-color: transparent;
     border: none;
-
 `
 
 export const TextoCard = styled.textarea`
@@ -36,7 +32,6 @@ export const TextoCard = styled.textarea`
     background-color:  transparent;
     text-align: center;
     width: 100%;
-
 `
 
 
