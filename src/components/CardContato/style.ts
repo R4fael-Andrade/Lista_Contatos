@@ -10,7 +10,6 @@ export const Card = styled.div`
     border-radius: 16px;
     box-shadow: 0 4px 8px;
     margin-bottom: 8px;
-    
 `
 
 export const NomeTag = styled.textarea`

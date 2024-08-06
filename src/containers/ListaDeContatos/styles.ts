@@ -12,5 +12,11 @@ export const Container = styled.div`
     max-width: 1424px;
     width: 100%;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+        display: block;
+        max-width: 80%;
+        width: 100%;
+    }
 `
 
